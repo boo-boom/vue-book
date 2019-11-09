@@ -1,15 +1,17 @@
+import { SET_FILE_NAME } from '@/store/actionTypes'
+
 const book = {
   state: {
-    book_test: 10
+    fileName: ''
   },
   mutations: {
-    'SET_BOOK_TEST': (state, newTest) => {
-      state.book_test = newTest
+    [SET_FILE_NAME](state, fileName) {
+      state.fileName = fileName
     }
   },
   actions: {
-    setBookTest: ({ commit, state }, newTest) => {
-      commit('SET_BOOK_TEST', newTest)
+    setFileName: ({ commit }, fileName) => {
+      return commit(SET_FILE_NAME, fileName)
     }
   }
 }
