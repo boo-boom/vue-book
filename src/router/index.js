@@ -6,7 +6,17 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/ebook'
+    redirect: '/test'
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import(/* webpackChunkName: "testPage" */ '@/views/TestPage.vue')
+  },
+  {
+    path: '/testRouter',
+    name: 'testRouter',
+    component: () => import(/* webpackChunkName: "testRouter" */ '@/views/TestRouter.vue')
   },
   {
     path: '/ebook',
@@ -22,7 +32,7 @@ const routes = [
   },
   {
     path: '*',
-    redirect: '/ebook'
+    redirect: '/test'
   }
 ]
 

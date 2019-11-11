@@ -1,8 +1,7 @@
 <template>
   <div class="EbookReader">
     <h1>{{ $route.params.fileName }}</h1>
-    <div id="reader">
-    </div>
+    <div id="reader"></div>
   </div>
 </template>
 
@@ -28,7 +27,7 @@ export default {
         method: 'default'
       })
       this.rendition.display()
-      console.log(this.book)
+      // console.log(this.book)
     },
     ...mapActions(['setFileName'])
   },
