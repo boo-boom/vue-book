@@ -17,6 +17,16 @@
 
     <router-link to="/testRouter?a=1&b=2">使用router-link组件进行路由传参</router-link>
     <div class="div-link" @click="goTestRouter()">使用编程式导航进行路由传参</div>
+
+    <p class="p-style">class="red blue": 样式覆盖与class顺序无关，与css样式顺序有关</p>
+
+    <!-- 横竖显示全部图片 -->
+    <div class="img-box">
+      <img src="./../assets/img/img_1.jpg" alt="img-1">
+    </div>
+    <div class="img-box">
+      <img src="./../assets/img/img_2.jpg" alt="img-2">
+    </div>
   </div>
 </template>
 
@@ -69,12 +79,45 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .test-page {
   .div-link {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+  }
+  // .blue {
+  //   background: blue;
+  // }
+  // .red {
+  //   background: red;
+  // }
+  .p-style:last-child {
+    background-color: red;
+  }
+  // first-child失效：前面必须没有兄弟节点，可用div包一层
+  .p-style:first-of-type {
+    background-color: yellow;
+  }
+  // 显示全部图片
+  .img-box {
+    border: 1px solid red;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  .img-box > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    // background: url("./../assets/img/img_1.jpg") no-repeat center center / 100%;
   }
 }
 </style>
