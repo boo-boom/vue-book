@@ -20,6 +20,8 @@
 
     <p class="p-style">class="red blue": 样式覆盖与class顺序无关，与css样式顺序有关</p>
 
+    <p>action异步操作：{{count}}</p>
+
     <!-- 横竖显示全部图片 -->
     <div class="img-box">
       <img src="./../assets/img/img_1.jpg" alt="img-1">
@@ -31,6 +33,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import Test1 from '@/components/Test1'
 
 export default {
@@ -49,6 +52,8 @@ export default {
     this.$refs.test1.$el.querySelector('.p-1').style.color = 'red'
     // 修改当前组件内的dom样式
     this.$refs.div1.style.color = 'blue'
+    // 异步action
+    this.actionAsyncCommit()
   },
   methods: {
     getMsg1(val) {
@@ -74,7 +79,11 @@ export default {
       //     b: 4
       //   }
       // })
-    }
+    },
+    ...mapActions(['actionAsyncCommit'])
+  },
+  computed: {
+    ...mapGetters(['count'])
   }
 }
 </script>
@@ -105,19 +114,32 @@ export default {
     box-sizing: border-box;
     width: 100px;
     height: 100px;
-    overflow: hidden;
-    position: relative;
+
+    // 使用定位
+    // overflow: hidden;
+    // position: relative;
+
+    // 使用表格布局
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0;
   }
   .img-box > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    // 使用定位
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // margin: auto;
+    // max-width: 100%;
+    // max-height: 100%;
+    // // background: url("./../assets/img/img_1.jpg") no-repeat center center / 100%;
+
+    // 使用表格
     max-width: 100%;
     max-height: 100%;
-    // background: url("./../assets/img/img_1.jpg") no-repeat center center / 100%;
   }
 }
 </style>

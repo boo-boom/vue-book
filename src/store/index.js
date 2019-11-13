@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from '@/store/getters'
 import book from '@/store/modules/book'
+import test from '@/store/modules/test'
 
 Vue.use(Vuex)
 
@@ -20,7 +21,8 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    book
+    book,
+    test
   },
   getters
 })
