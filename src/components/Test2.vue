@@ -1,10 +1,19 @@
 <template>
-  <div class="test">test2: {{this.$attrs.info2}}</div>
+  <div class="test">
+    <p>test2: {{this.$attrs.info2}}</p>
+    <p>test2: {{rootEmitVal}}</p>
+  </div>
+
 </template>
 
 <script>
 export default {
   name: 'test2',
+  data() {
+    return {
+      rootEmitVal: ''
+    }
+  },
   mounted() {
     this.$emit('emitSetMsg2', '使用$listeners，与来自孙子组件进行emit通讯')
 
@@ -14,7 +23,7 @@ export default {
      * 2. this.$root.$on 接收该事件
      */
     this.$root.$on('rootEmit', val => {
-      console.log(val)
+      this.rootEmitVal = val
     })
   }
 }
