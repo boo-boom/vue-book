@@ -14,6 +14,7 @@ export default {
   props: ['info1'],
   mounted() {
     this.setMsg1()
+    this.pointRootEmit()
   },
   methods: {
     setMsg1() {
@@ -21,6 +22,9 @@ export default {
     },
     pointMsg() {
       console.log('test1: 父组件调用子组件事件')
+    },
+    pointRootEmit() {
+      this.$root.$emit('rootEmit', '任意组件利用$root进行通讯')
     }
   }
 }
