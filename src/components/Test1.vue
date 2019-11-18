@@ -1,7 +1,9 @@
 <template>
   <div class="test1">
     <p class="p-1">test1: {{info1}}</p>
-    <Test2 v-bind="$attrs" v-on="$listeners" />
+    <Test2 v-bind="$attrs" v-on="$listeners">
+      <p slot="slot-name-1">test2: slot插槽的使用方法</p>
+    </Test2>
   </div>
 </template>
 

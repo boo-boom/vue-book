@@ -2,6 +2,7 @@
   <div class="test">
     <p>test2: {{this.$attrs.info2}}</p>
     <p>test2: {{rootEmitVal}}</p>
+    <slot name="slot-name-1" />
   </div>
 
 </template>
