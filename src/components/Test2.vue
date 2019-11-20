@@ -17,6 +17,7 @@ export default {
   },
   mounted() {
     this.$emit('emitSetMsg2', '使用$listeners，与来自孙子组件进行emit通讯')
+    this.$listeners.click()
 
     /**
      * 任意组件利用$root进行通讯
@@ -26,6 +27,14 @@ export default {
     this.$root.$on('rootEmit', val => {
       this.rootEmitVal = val
     })
+
+    // 通过$parent向祖先组件通讯
+    this.$parent.$parent.pointTestMsg()
+  },
+  methods: {
+    pointTest2Msg() {
+      console.log('这是孙组件方法')
+    }
   }
 }
 </script>

@@ -9,6 +9,7 @@
       info2="使用$attrs传给子孙组件的参数: 在子孙组件中必须props中没有注册该属性，如 props: ['info1']，则孙组件中无法利用$attrs获取info1"
       @emitSetMsg1="getMsg1"
       @emitSetMsg2="getMsg2"
+      @click="pointTestMsg"
       ref="test1">
     </div>
 
@@ -46,6 +47,8 @@ export default {
     }
   },
   mounted() {
+    // $children获取子孙组件函数，可进行通讯
+    this.$refs.test1.$children[0].pointTest2Msg()
     // 父组件调用子组件事件
     this.$refs.test1.pointMsg()
     // 修改子组件内某一dom样式
@@ -61,6 +64,9 @@ export default {
     },
     getMsg2(val) {
       this.emitMsg2 = val
+    },
+    pointTestMsg() {
+      console.log('这是父级组件')
     },
     goTestRouter() {
       // query: 使用path作为路由标识，参数由url的方式传递
