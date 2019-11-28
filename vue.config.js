@@ -7,6 +7,10 @@ module.exports = {
       alias: {
         '@': path.join(__dirname, 'src')
       }
+    },
+    externals: {
+      'jquery': '$',
+      'jWeixin': 'wx'
     }
   }
 }
